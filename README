@@ -1,7 +1,60 @@
 Forked from a1wong/it87
 
-Tested by ITE IT8613E chip on N100 mini desktop.
+Tested by ITE IT8613E chip on N100 mini desktop at PVE 8.1.4.
 Update on 15-Mar-2024
+Instruction:
+SSL log in PVE
+cd /usr/src/
+git clone https://github.com/shauno8/it87.git
+cd it87
+sh autorun_install.sh
+---done.
+
+Checking:
+Run command sensors
+It should shows:
+root@pve:/usr/src/it87# sensors
+coretemp-isa-0000
+Adapter: ISA adapter
+Package id 0:  +25.0°C  (high = +105.0°C, crit = +105.0°C)
+Core 0:        +24.0°C  (high = +105.0°C, crit = +105.0°C)
+Core 1:        +24.0°C  (high = +105.0°C, crit = +105.0°C)
+Core 2:        +24.0°C  (high = +105.0°C, crit = +105.0°C)
+Core 3:        +24.0°C  (high = +105.0°C, crit = +105.0°C)
+
+acpitz-acpi-0
+Adapter: ACPI interface
+temp1:        +27.8°C  (crit = +110.0°C)
+
+it8613-isa-0a30
+Adapter: ISA adapter
+in0:         715.00 mV (min =  +2.11 V, max =  +0.46 V)  ALARM
+in1:           1.21 V  (min =  +2.29 V, max =  +0.08 V)  ALARM
+in2:           2.02 V  (min =  +2.48 V, max =  +2.53 V)  ALARM
+in4:           2.02 V  (min =  +2.29 V, max =  +2.68 V)  ALARM
+in5:           1.99 V  (min =  +2.11 V, max =  +1.22 V)  ALARM
+3VSB:          3.28 V  (min =  +4.25 V, max =  +5.39 V)  ALARM
+Vbat:          2.73 V  
++3.3V:         3.30 V  
+fan2:           0 RPM  (min =   17 RPM)  ALARM
+fan3:           0 RPM  (min =   27 RPM)  ALARM
+temp1:        +35.0°C  (low  = +60.0°C, high = -51.0°C)  ALARM  sensor = thermal diode
+temp2:        +24.0°C  (low  =  -4.0°C, high = +109.0°C)  sensor = thermal diode
+temp3:        +35.0°C  (low  = -28.0°C, high = -113.0°C)  ALARM
+intrusion0:  ALARM
+
+nvme-pci-0500
+Adapter: PCI adapter
+Composite:    +41.9°C  (low  =  -0.1°C, high = +82.8°C)
+                       (crit = +83.8°C)
+Sensor 1:     +34.9°C  (low  = -273.1°C, high = +65261.8°C)
+Sensor 2:     +39.9°C  (low  = -273.1°C, high = +65261.8°C)
+
+root@pve:/usr/src/it87# 
+
+
+
+Please note !!!!!!!!!!
 Fixed warning: this statement may fall through [-Wimplicit-fallthrough=] by removing flowing code so not fuction for it8686 ,it8655 ,it8625 ,it8665
 
 		switch (data->type) {
