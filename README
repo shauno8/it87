@@ -8,6 +8,7 @@ cd /usr/src/
 git clone https://github.com/shauno8/it87.git
 cd it87
 sh autorun_install.sh
+reboot
 ---done.
 
 Checking:
