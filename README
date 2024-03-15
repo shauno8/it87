@@ -1,4 +1,41 @@
 Forked from a1wong/it87
+Fixed warning: this statement may fall through [-Wimplicit-fallthrough=] by removing flowing code so not fuction for it8686 ,it8655 ,it8625 ,it8665
+
+		switch (data->type) {
+		case it8686:
+			if (src1 < 9)
+				type = temp_types_8686[index][src1];
+			break;
+		case it8625:
+			if (index < 3)
+				break;
+		case it8655:
+		case it8665:
+			if (src1 < 3) {
+				index = src1;
+				break;
+			}
+			src2 = data->temp_src[3];
+			switch (src1) {
+			case 3:
+				type = (src2 & BIT(index)) ? 6 : 5;
+				break;
+			case 4 ... 8:
+				type = (src2 & BIT(index)) ? 4 : 6;
+				break;
+			case 9:
+				type = (src2 & BIT(index)) ? 5 : 0;
+				break;
+			default:
+				break;
+			}
+			return type;
+		default:
+			return 0;
+		}
+
+
+
 DRIVER REMOVAL NOTICE
 =====================
 
