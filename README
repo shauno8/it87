@@ -1,4 +1,7 @@
 Forked from a1wong/it87
+
+Tested by ITE IT8613E chip on N100 mini desktop.
+Update on 15-Mar-2024
 Fixed warning: this statement may fall through [-Wimplicit-fallthrough=] by removing flowing code so not fuction for it8686 ,it8655 ,it8625 ,it8665
 
 		switch (data->type) {
